@@ -1,0 +1,68 @@
+####################
+# Folders
+####################
+
+^open (my )?video(s)?( folder| directory)?$
+    open ~/Videos
+
+^open (my )?music( folder| directory)?$
+    open ~/Music
+
+^open (my )?downloads( folder| directory)?$
+    open ~/Downloads
+
+^open (my )?documents( folder| directory)?$
+    open ~/Documents
+
+^open (my )?dropbox( folder| directory)?$
+    open ~/Dropbox
+
+####################
+# Browser
+####################
+
+^(browser|google)$
+    browser
+
+^(go( to)?|open) (?P<text>\S+(.*))
+    browser <text>
+
+^(search|google) (?P<text>.+)
+    browser https://www.google.com/search?q=<text>
+
+^(?P<text>(what|what's|how|who|whos|why|when|where|where's|which|is|was|are|were) \S+(.*))
+    browser https://www.google.com/search?q=<text>
+
+(?P<text>(.* )?weather( .*)?)
+    browser https://www.google.com/search?q=<text>
+
+
+###################
+# Media
+###################
+
+^(loud|louder|(volume )?up)$
+    media volume 10%+
+
+^(low|(volume )?down)$
+    media volume 10%-
+
+^(volume )?(?P<text>(un)?mute)$
+    media volume <text>
+
+^next
+    media next
+
+^(latest|before|previous)
+    media prev
+
+^(stop|pause|play)$
+    media pause
+
+
+###################
+# Text
+###################
+
+^type (?P<text>.+)
+    type <text>
